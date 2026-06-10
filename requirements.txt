@@ -1,0 +1,7 @@
+azure-ai-projects
+streamlit
+streamlit-agraph
+pydantic
+openai
+python-dotenv
+networkx
