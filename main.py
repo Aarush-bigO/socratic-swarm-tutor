@@ -390,9 +390,7 @@ st.markdown("""
 
 # Animated Logo + Title
 import base64
-logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logo.png")
-with open(logo_path, "rb") as f:
-    logo_b64 = base64.b64encode(f.read()).decode()
+logo_b64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
 
 st.markdown(f"""
 <style>
