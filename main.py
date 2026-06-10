@@ -391,8 +391,12 @@ st.markdown("""
 # Animated Logo + Title
 import base64
 logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logo.png")
-with open(logo_path, "rb") as f:
-    logo_b64 = base64.b64encode(f.read()).decode()
+try:
+    with open(logo_path, "rb") as f:
+        logo_b64 = base64.b64encode(f.read()).decode()
+    logo_html = f'<img class="logo-img" src="data:image/png;base64,{logo_b64}" alt="Logo"/>'
+except FileNotFoundError:
+    logo_html = '<div class="logo-img" style="background:linear-gradient(135deg,#8b5cf6,#06b6d4);display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🧠</div>'
 
 st.markdown(f"""
 <style>
@@ -419,7 +423,7 @@ st.markdown(f"""
     }}
 </style>
 <div class="logo-row">
-    <img class="logo-img" src="data:image/png;base64,{logo_b64}" alt="Logo"/>
+    {logo_html}
     <div>
         <div style="font-family:'Inter',sans-serif; font-size:1.7rem; font-weight:700; letter-spacing:-0.03em;
                     background:linear-gradient(90deg,#e2e8f0,#c4b5fd,#67e8f9,#c4b5fd,#e2e8f0);
